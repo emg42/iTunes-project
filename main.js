@@ -1,13 +1,33 @@
-let searchBar = document.querySelector('.main-search-bar');
-let searchBtn = document.querySelector('.search-btn');
+let searchBar = document.querySelector('#search');
+// let searchBtn = document.querySelector('.search-btn');
 let searchResults = document.querySelector('.song-container');
 let musicPlayer = document.querySelector('audio');
-let url ="";
+let baseUrl ="https://itunes.apple.com/search?term=";
 
-searchBtn.addEventListener('click', searchMusic)
+let textInput = "";
+
+// searchBtn.addEventListener('click', searchMusic)
+
+searchBar.addEventListener('submit', function(concatInnerHTML){
+  concatInnerHTML.preventDefault()
+  textInput = concatInnerHTML.target.querySelector('input[name = "search"]').value
+  console.log(textInput);
+
+fetch(baseUrl + textInput)
+  .then(function(response){
+    console.log(response.status);
+      response.json();
+
+      .then(function(data) {
+        let searchResultsData = data.results;
+        console.log(searchResultsData)
+      })
+  })
 
 
-function searchMusic (){
-let input = searchBar.value;
-let url = "https://itunes.apple.com/search?term=" + input + "&country=US&media=music";
-}
+
+
+
+
+
+})
