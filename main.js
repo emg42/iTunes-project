@@ -3,15 +3,16 @@ let searchBar = document.querySelector('#search');
 let resultsArea = document.querySelector('.song-container');
 let musicPlayer = document.querySelector('audio');
 let baseUrl ="https://itunes.apple.com/search?term=";
-
+let player = document.querySelector('.music-controler')
 let textInput = "";
 
 // searchBtn.addEventListener('click', searchMusic)
-function playSong() {
-
+function playSong(url) {
+player.setAttribute("src", url);
 }
-function clearPage() {
 
+function clearPage() {
+results.innerHTML = "";
 }
 
 searchBar.addEventListener('submit', function(concatInnerHTML){
