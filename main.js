@@ -16,9 +16,7 @@ searchBar.addEventListener('submit', function(concatInnerHTML){
 fetch(baseUrl + textInput)
   .then(function(response){
     console.log(response.status);
-      response.json();
-
-      .then(function(data) {
+      response.json().then(function(data) {
         let searchResultsData = data.results;
         console.log(searchResultsData)
       })
